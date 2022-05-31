@@ -80,7 +80,7 @@
         </div>
         <div class="col-md-3 col-lg-8 col-12 col-sm-12">
           <p class="text-left lead mt-2">Informações</p>
-          <p class="text-left mb-0 ml-2">Idade: 27 anos<br></p>
+          <p class="text-left mb-0 ml-2">Idade: <span id="year-custom"></span> anos<br></p>
           <p class="text-left mt-0 ml-2">Estado Civil: Solteiro<br></p>
           <p class="text-left lead mt-2">Línguas<br></p>
           <h6 class="text-left ml-2">Português <font color="#6c757d"><span style="font-size: 16px;">fluente</span></font>
@@ -225,6 +225,19 @@
   <!-- Script: Smooth scrolling between anchors in the same page -->
   <script src="js/smooth-scroll.js" style=""></script>
   <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16"></pingendo>
+  <script>
+    var dob = new Date("12-15-1992");  
+    //calculate month difference from current date in time  
+    var month_diff = Date.now() - dob.getTime();
+    //convert the calculated difference in date format  
+    var age_dt = new Date(month_diff);   
+    //extract year from date      
+    var year = age_dt.getUTCFullYear();  
+    //now calculate the age of the user  
+    var age = Math.abs(year - 1970);  
+    //display the calculated age  
+    document.getElementById("year-custom").innerHtml(age);  
+  </script>
 </body>
 
 </html>
